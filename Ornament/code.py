@@ -209,9 +209,12 @@ while True:
         G = 0
         B = 0
         x, y, z = cp.acceleration
-        print((x, y, z))
+        # print((x, y, z))
         cp.pixels.fill(((R + abs(int(x))), (G + abs(int(y))), (B + abs(int(z)))))
-        pixel_color_hex = hex(int(str(R + abs(int(x)))))<<4 + hex(int(str(G + abs(int(x)))))<<2 + hex(int(str(B + abs(int(x)))))
-        # print(pixel_color_hex)
-        # inner_palette[0] = pixel_color_hex
+        pixel_color_hex = (R + abs(int(x))) + (G + abs(int(x)))<<2 + (B + abs(int(x)))<<4
+        # print(hex(pixel_color_hex))
+        if(pixel_color_hex < 0xffffff):
+        	inner_palette[0] = pixel_color_hex
+    	else:
+    		print("color to big ")
     pass
