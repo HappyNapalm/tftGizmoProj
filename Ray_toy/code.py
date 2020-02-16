@@ -40,6 +40,10 @@ bg_sprite = displayio.TileGrid(color_bitmap,
                                x=0, y=0)
 splash.append(bg_sprite)
         
+for x in range(0,240):
+    for y in range(0,240):
+        if(y%5 == 0):
+            color_bitmap[x,y] = 1
 # Draw a smaller inner rectangle
 # inner_bitmap = displayio.Bitmap(200, 200, 1)
 # inner_palette = displayio.Palette(1)
@@ -82,7 +86,7 @@ while True:
         inner_palette[0] = RED # Purple
         inner_sprite = displayio.TileGrid(inner_bitmap,
                                           pixel_shader=inner_palette,
-                                          x=int((x)+120), y=int((y)+120))
+                                          x=int((x)*10+120), y=int((y)*10+120))
         splash.append(inner_sprite)
         if(len(splash) > 2):
             splash.pop(1)
